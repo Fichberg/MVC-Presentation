@@ -1,4 +1,4 @@
 poo_mvc_presentation
 ====================
 
-Slides for a presentation of the OOP course at IME-USP
+Slides for an OOP course's presentation at IME-USP. Theme: MVC Pattern.

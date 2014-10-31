@@ -1,0 +1,70 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[brazil]{babel}
+\usepackage[labelformat=empty]{caption}
+\usetheme{Luebeck}
+\title[Padrão Model-View-Controller]{Padrão Model-View-Controller}
+\author{Ana Luísa Losnak. Luiz Armesto. Renan Fichberg.}
+\date{Novembro 4, 2014}
+\institute{Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP)}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Introdução}
+\begin{itemize}
+	\item O que é um padrão?
+	\item O padrão MVC
+	\item Softwares que utilizam o MVC
+\end{itemize}
+\end{frame}
+
+%TODO: o que é um padrão (não há necessidade de dar exemplos. O tema por si só já é um exemplo)
+\begin{frame}
+\frametitle{O que é um padrão?}
+	Em Engenharia de Software, um padrão de design é uma solução geral que pode ser reutilizada para resolver um problema recorrente de um contexto específico de Design de Software.
+\end{frame}
+
+%TODO: O padrão MVC
+\begin{frame}
+\frametitle{O padrão MVC}
+\begin{itemize}
+	\item Por que usar?
+	\item O padrão MVC
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{O padrão MVC}
+\framesubtitle{Por que usar?}
+\begin{itemize}
+	\item Interfaces de usuário estão propensas a mudar freqüentemente e, portanto, isto não pode ser uma tarefa complicada
+	\item Ganhar flexibilidade: reduzir o entrelaçamento da interface de usuário com o núcleo funcional.
+	\item Diminuir custos e propensão a erros na construção do sistema
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{O padrão MVC}
+\framesubtitle{}
+\begin{itemize}
+	\item Model: encapsula os dados e a funcionalidade. É independente de representações específicas das saídas de dados e do comportamento da entrada de dados.
+	\item View: apresenta as informações para o usuário. Os dados apresentados são obtidos do model. Podem haver diversas views para o model.
+	\item Controller: cada view tem um controller associado à ela. Controllers recebem eventos de entrada, como click de mouse ou leitura de teclado. Tais eventos são então traduzidos em requisições para o model ou para a view. É pelo controller que o usuário interage com o sistema.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{O padrão MVC}
+\framesubtitle{}
+\begin{itemize}
+	\item
+\end{itemize}
+\end{frame}
+
+\end{document}
