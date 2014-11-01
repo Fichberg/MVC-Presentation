@@ -61,12 +61,17 @@
 \frametitle{O padrão MVC}
 \framesubtitle{}
 	O padrão de arquitetura divide uma aplicação em três componentes que estão interconectados: o model, as views e os controllers, sendo os últimos dois os componentes que compreendem a interface de usuário.
-%Inserir uma imagem da arquitetura do MVC aqui
+\begin{center}
+	\includegraphics[scale=0.2]{MVC.jpg}
+\end{center}
+\begin{center}
+	\tiny{\textit{Fonte: wikipedia}}
+\end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{O padrão MVC}
-\framesubtitle{}
+\framesubtitle{A tríade: os três componentes do MVC}
 \begin{itemize}
 	\item Model: encapsula os dados e a funcionalidade. É independente de representações específicas das saídas de dados e do comportamento da entrada de dados.
 	\item View: apresenta as informações para o usuário. Os dados apresentados são obtidos do model. Podem haver diversas views para o model.
@@ -82,13 +87,30 @@
 \begin{frame}
 \frametitle{Softwares que utilizam o MVC}
 \framesubtitle{Rails não é MVC!}
-	Apesar do que se diz por aí, o famoso framework \textit{Rails} não é MVC, mas sim um modelo derivado deste, chamado \textbf{Model 2}. 
+	Apesar do que se diz por aí, o famoso framework \textit{Rails} não é MVC, mas sim um modelo similar a este, chamado \textbf{Model 2}. Por que?\\
 \end{frame}
+
+\begin{frame}
+\frametitle{Softwares que utilizam o MVC}
+\framesubtitle{Rails não é MVC!}
+	No MVC clássico, um model pode notificar as views a respeito das mudanças que aconteceram (a partir do padrão \textit{Observer}). No Rails
+	nós não notificamos as views a partir do model, o controller simplesmente passa o dado do model para as views e se encarrega da geração do HTML que 
+	é posteriormente enviado ao browser, como exibido no esquema abaixo:
+	\begin{center}
+		\includegraphics[scale=0.4]{RailsMVC.jpg}
+	\end{center} 
+\end{frame}
+
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{O Model 2}
-	A seguir, um diagrama do \textit{Design Pattern} \textbf{Model 2}, usado no framework \textit{Rails}, mencionado no último slide.
-	%inserir uma imagem da arquitetura do model 2 aqui 
+	A seguir, um diagrama do \textit{Design Pattern} \textbf{Model 2}, usado no framework \textit{Rails}, mencionado no último slide.\\
+	\begin{center}
+		\includegraphics[scale=0.2]{Model2.jpg}
+	\end{center}
+	\begin{center}
+		\tiny{\textit{Fonte: wikipedia}}
+	\end{center} 
 \end{frame}
 
 \begin{frame}
