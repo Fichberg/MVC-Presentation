@@ -21,6 +21,7 @@
 \begin{itemize}
 	\item O que é um padrão?
 	\item O padrão MVC
+	\item Alguns frameworks que usam MVC ou derivados.
 	\item Alguns padrões similares ao MVC
 \end{itemize}
 \end{frame}
@@ -44,7 +45,7 @@
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Surgimento}
-	O cientista da computação norueguês Trygve Reenskaug inicialmente introduziu o padrão MVC no Smalltalk-76 enquanto visitava a Xerox Parc, nos anos 70. Na decada posterior, Jim Althoff e outras pessoas implementaram uma versão do padrão para a biblioteca do Smalltalk-80. A partir de então, nos anos seguintes o padrão evoluiu o suficiente para que surgisse variantes, como o HMVC (\textit{Hierarchical Model-View-Controller}), o MVA (\textit{Model-View-Adapter}) e o MVP (\textit{Model-View-Presenter}).
+	O cientista da computação norueguês Trygve Reenskaug inicialmente introduziu o padrão MVC no Smalltalk-76 enquanto visitava a Xerox Parc, nos anos 70. Na decada posterior, Jim Althoff e outras pessoas implementaram uma versão do padrão para a biblioteca do Smalltalk-80. A partir de então, nos anos seguintes o padrão evoluiu o suficiente para que surgisse variantes, como o HMVC (\textit{Hierarchical Model-View-Controller}), o MVA (\textit{Model-View-Adapter}), o MVP (\textit{Model-View-Presenter}), dentre outros.
 \end{frame}
 
 \begin{frame}
@@ -80,19 +81,27 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Softwares que utilizam o MVC}
+\frametitle{Alguns frameworks que usam MVC ou derivados.}
 \framesubtitle{}
+	\textbf{ActionScript 3} - Cairngorm, PureMVC.\\
+	\textbf{ASP} - ASP Xtreme Evolution, Toika, AJAXED.\\
+	\textbf{Java} - Apache Struts, Tapestry, VRaptor, Spring MVC, JSF.\\
+	\textbf{Perl} - Catalyst.\\
+	\textbf{PHP} - CakePHP, CodeIgniter, LightVC, Symfony.\\
+	\textbf{Python} - Django.\\
+	\textbf{Ruby} - Rails.
 \end{frame}
 
 \begin{frame}
-\frametitle{Softwares que utilizam o MVC}
-\framesubtitle{Rails não é MVC!}
-	Apesar do que se diz por aí, o famoso framework \textit{Rails} não é MVC, mas sim um modelo similar a este, chamado \textbf{Model 2}. Por que?\\
+\frametitle{Alguns frameworks que usam MVC ou derivados.}
+\framesubtitle{Rails não é MVC puro!}
+	Apesar do que se diz por aí, o famoso framework \textit{Rails}, para \textit{Ruby}, não é MVC, ou pelo menos, não o clássico, 
+	mas sim um modelo derivado deste, chamado \textbf{Model 2}.
 \end{frame}
 
 \begin{frame}
-\frametitle{Softwares que utilizam o MVC}
-\framesubtitle{Rails não é MVC!}
+\frametitle{Alguns frameworks que usam MVC ou derivados.}
+\framesubtitle{Rails não é MVC puro!}
 	No MVC clássico, um model pode notificar as views a respeito das mudanças que aconteceram (a partir do padrão \textit{Observer}). No Rails
 	nós não notificamos as views a partir do model, o controller simplesmente passa o dado do model para as views e se encarrega da geração do HTML que 
 	é posteriormente enviado ao browser, como exibido no esquema abaixo:
@@ -118,7 +127,9 @@
 \framesubtitle{O Hierarchical Model–View–Controller (HMVC)}
 	O \textbf{HMVC} é uma variação do MVC, similar a um outro chamado \textit{Presentation–Abstraction–Control (PAC)}, que surgiu como uma resposta aos problemas
 	relacionados a escalabilidade.
-	%inserir uma imagem da arquitetura do HMVC aqui 
+	\begin{center}
+		\includegraphics[scale=0.2]{HMVC.jpg}
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -126,15 +137,18 @@
 \framesubtitle{O Movel-View-Adapter (MVA)}
 	Uma outra variação do MVC é o \textbf{Model-View-Adapter (MVA)}, que traz com ele uma diferença de estilo:\\
 	Não há comunicação direta entre a View e o Model.
-	%inserir uma imagem de MVA
-	%https://www.palantir.com/2009/04/model-view-adapter/
+	\begin{center}
+		\includegraphics[scale=0.4]{MVA.jpg}
+	\end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{O Movel-View-Presenter (MVP)}
 	Nesta outra variação do MVC, nomeada \textbf{Model-View-Presenter (MVP)}, a View é a responsável por manipular os eventos da interface de usuário, função do controller no MVC tradicional.
-	%inserir uma imagem de MVP
+	\begin{center}
+		\includegraphics[scale=0.4]{MVP.jpg}
+	\end{center}
 \end{frame}
 
 \begin{frame}
