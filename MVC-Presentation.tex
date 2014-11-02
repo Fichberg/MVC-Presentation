@@ -94,7 +94,8 @@
 	\textbf{Perl} - Catalyst.\\
 	\textbf{PHP} - CakePHP, CodeIgniter, LightVC, Symfony.\\
 	\textbf{Python} - Django.\\
-	\textbf{Ruby} - Rails.
+	\textbf{Ruby} - Rails.\\
+	\textbf{Smalltalk} - Smalltalk-80.\\
 \end{frame}
 
 \begin{frame}
@@ -117,7 +118,7 @@
 
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
-\framesubtitle{O Model 2}
+\framesubtitle{O Model 2: um MVC do mundo do Java}
 	A seguir, um diagrama do \textit{Design Pattern} \textbf{Model 2}, usado no framework \textit{Rails}, mencionado no último slide.
 	\begin{center}
 		\includegraphics[scale=0.2]{Model2.jpg}
@@ -130,12 +131,20 @@
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{O Hierarchical Model–View–Controller (HMVC)}
-	O \textbf{HMVC} é uma variação do MVC, similar a um outro chamado \textit{Presentation–Abstraction–Control (PAC)}, que surgiu como uma resposta aos problemas
-	relacionados a escalabilidade.
+	O \textbf{HMVC} é uma variação do MVC, similar a um outro chamado \textit{Presentation–Abstraction–Control (PAC)}, que surgiu como uma tentativa de resposta aos problemas de escalabilidade.
 	\begin{center}
 		\includegraphics[scale=0.175]{HMVC.jpg}
 	\end{center}
-	Aqui cada tríade funciona independentemente e uma tríade pode fazer requisição de acesso à outra a partir dos seus controllers.
+	Cada tríade funciona independentemente e uma tríade pode fazer requisição de acesso à outra a partir dos seus controllers.
+\end{frame}
+
+\begin{frame}
+\frametitle{Alguns padrões similares ao MVC}
+\framesubtitle{MVC versus HMVC: algumas diferenças}
+	\begin{itemize}
+	\item MVC é mais simples.
+	\item HMVC é mais escalável.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -146,7 +155,15 @@
 		\includegraphics[scale=0.4]{MVA.jpg}
 	\end{center}
 	Na imagem, as linhas pontilhadas representam comunicação indireta, através do uso do padrão \textit{Observer}, já as demais linhas são relações diretas.
-	Uma das suas vantagens é o desacoplamento total do model e da view. Uma outra vantagem é que toda a dinâmica da aplicação acaba centralizada no adapter.
+\end{frame}
+
+\begin{frame}
+\frametitle{Alguns padrões similares ao MVC}
+\framesubtitle{MVC versus MVA: algumas diferenças}
+\begin{itemize}
+	\item Desacoplamento total do model e da view no MVA.
+	\item Toda a dinâmica da aplicação é centralizada no adapter.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -154,10 +171,22 @@
 \framesubtitle{O Movel-View-Presenter (MVP)}
 	Nesta outra variação do MVC, nomeada \textbf{Model-View-Presenter (MVP)}, a View é a responsável por manipular os eventos da interface de usuário, função do controller no MVC tradicional.
 	\begin{center}
-		\includegraphics[scale=0.4]{MVP.jpg}
+		\includegraphics[scale=0.3]{MVP.jpg}
 	\end{center}
-	O MVP surgiu, dentre outros motivos, com o objetivo de tentar facilitar a realização de testes de unidade automatizados. Aqui, o presenter age sobre o model
-	e a view, atualizando e recuperando dados do model e passando-os já preparados para a view, que apenas deverá exibi-los da maneira esperada.
+	O MVP surgiu, dentre outros motivos, com o objetivo de tentar facilitar a realização de testes de unidade automatizados (diferente do MVC tradicional, o presenter
+	só interage com a view por meio de uma interface). Aqui, o presenter age sobre o model e a view, atualizando e recuperando dados do model e passando-os já preparados para a view, que apenas deverá exibi-los da maneira esperada.
+\end{frame}
+
+\begin{frame}
+\frametitle{Alguns padrões similares ao MVC}
+\framesubtitle{MVC versus MVP: algumas diferenças}
+\begin{itemize}
+	\item View está menos amarrada ao model no MVP. Amarrá-los é tarefa do presenter.\\
+	\item Mais facilidade para realizar testes de unidade no MVP.\\
+	\item Views complexas podem ter múltiplos presenters.
+	\item No MVC, a parte lógica deve sempre ficar completamente isolada da view.
+	\item Controller é baseado em comportamentos e pode ser compartilhado através das views.
+\end{itemize}
 \end{frame}
 
 \end{document}
