@@ -7,9 +7,14 @@
 \usepackage{graphicx}
 \usetheme{Luebeck}
 \title[Padrão Model-View-Controller]{Padrão Model-View-Controller}
-\author{Ana Luísa Losnak. Luiz Armesto. Renan Fichberg.}
+\author{Ana Luísa Losnak \and Luiz Armesto \and  Renan Fichberg}
 \date{Novembro 4, 2014}
 \institute{Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP)}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+    \insertframenumber\,/\,\inserttotalframenumber}
+
 \begin{document}
 
 \begin{frame}
@@ -21,7 +26,7 @@
 \begin{itemize}
 	\item O que é um padrão?
 	\item O padrão MVC
-	\item Alguns frameworks que usam MVC ou derivados.
+	\item Alguns \textit{frameworks} que usam MVC ou derivados
 	\item Alguns padrões similares ao MVC
 \end{itemize}
 \end{frame}
@@ -29,18 +34,28 @@
 %TODO: o que é um padrão (não há necessidade de dar exemplos. O tema por si só já é um exemplo)
 \begin{frame}
 \frametitle{O que é um padrão?}
-	Em Engenharia de Software, um padrão de design é uma solução geral que pode ser reutilizada para resolver um problema recorrente de um contexto específico de Design de Software
+	Em Engenharia de Software, um padrão de \textit{design} é uma solução geral que pode ser reutilizada para resolver um problema recorrente de um contexto específico de Design de Software
 \end{frame}
+
+\begin{frame}
+\frametitle{O que é um padrão?}
+\framesubtitle{Padrão de arquitetura}
+  \begin{itemize}
+  \item {Não é específico de uma arquitetura}
+  \item {Solução geral que envolve a estrutura dos elementos de uma arquitetura de software}
+  \end{itemize}
+\end{frame}
+
 
 %TODO: O padrão MVC
 \begin{frame}
 \frametitle{O padrão MVC}
 \begin{itemize}
 	\item Breve histórico
-	\item Por que usar?
-	\item O padrão MVC
+	\item Estrutura
 	\item A tríade: os três componentes do MVC
 	\item Padrões associados
+	\item Por que usar?
 \end{itemize}
 \end{frame}
 
@@ -55,54 +70,102 @@
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Breve histórico}
-	O cientista da computação norueguês Trygve Reenskaug é o pai do padrão MVC, que fez sua primeira aparição ao público no Smalltalk-80. Por muito tempo, não houve
-	muitas informações acerca do padrão virtualmente, até o lançamento do primeiro \textit{paper} significativo, entitulado \textit{`A Cookbook for Using the Model-View-Controller User Interface Paradigm in Smalltalk -80'}, de Glenn Krasner e Stephen Pope, publicado em Agosto/Setembro de 1988, no \textit{`Journal Of Object Oriented Programming'}
-\end{frame}
-
-\begin{frame}
-\frametitle{O padrão MVC}
-\framesubtitle{Por que usar?}
 \begin{itemize}
-	\item Interfaces de usuário estão propensas a mudar freqüentemente e, portanto, isto não pode ser uma tarefa complicada
-	\item Ganhar flexibilidade: reduzir o entrelaçamento da interface de usuário com o núcleo funcional
-	\item Diminuir custos e propensão a erros na construção do sistema
-	\item A separação de responsabilidades facilita a utilização de testes automatizados
+\item {Criado pelo cientista da computação norueguês Trygve Reenskaug}
+\item {Originalmente para o \textit{framework} Smalltalk-80}
+\item {Lançamento do \textit{paper} \textit{`A Cookbook for Using the Model-View-Controller User Interface Paradigm in Smalltalk -80'}, de Glenn Krasner e Stephen Pope, em Agosto/Setembro de 1988, no \textit{`Journal Of Object Oriented Programming'}}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{O padrão MVC}
-\framesubtitle{}
-	O padrão de arquitetura divide uma aplicação em três componentes: o model, as views e os controllers, sendo os últimos dois os componentes que compreendem a interface de usuário.
+\framesubtitle{Estrutura}
+	O padrão divide uma aplicação em três componentes: o \textit{model}, as \textit{views} e os \textit{controllers}.
+
+\begin{itemize}
+	\item \textit{Model}: encapsula os dados e a funcionalidade
+	\item \textit{View}: apresenta as informações para o usuário
+  \item \textit{Controller}: trata a interação do usuário com o sistema
+\end{itemize}
+ 
+  As \textit{views} e os \emph{controllers} compreendem a interface de usuário.
+\end{frame}
+
+\begin{frame}
+\frametitle{O padrão MVC}
+\framesubtitle{A tríade - o Model}
 \begin{center}
 	\includegraphics[scale=0.4]{MVC.jpg}
+\end{center}
+O \textit{Model}:
+  \begin{itemize}
+    \item {É responsável pela lógica da aplicação}
+    \item {Independe da interface de usuário}
+    \item {Apenas notifica as \textit{views} e os \textit{controllers} de alterações nos dados}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{O padrão MVC}
+\framesubtitle{A tríade - a View}
+\begin{center}
+	\includegraphics[scale=0.4]{MVC.jpg}
+\end{center}
+A \textit{View}:
+\begin{itemize}
+  \item {É responsável por qualquer saída de dados ao usuário}
+  \item {Cria seu respectivo \textit{controller}}
+  \item {Recebe dados do \textit{model}}
+  \item {Podem existir várias \textit{views} para um mesmo \textit{model}}
+\end{itemize}
+\end{frame}
+
+\begin{frame} [shrink=10]
+\frametitle{O padrão MVC}
+\framesubtitle{A tríade - o Controller}
+\begin{center}
+	\includegraphics[scale=0.4]{MVC.jpg}
+\end{center}
+O \textit{Controller}: 
+\begin{itemize}
+  \item {É responsável por qualquer entrada de dados na aplicação, como um \textit{click} do \textit{mouse} ou uso de teclas do teclado}
+  \item {Trata as entradas de dados como eventos e os transforma em serviços}
+  \item {Pode atualizar o estado do \textit{model} ou da \textit{view}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{O padrão MVC}
+\begin{center}
+	\includegraphics[scale=0.6]{MVCScenario.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{O padrão MVC}
-\framesubtitle{A tríade: os três componentes do MVC}
-\begin{itemize}
-	\item Model: encapsula os dados e a funcionalidade. É independente de representações específicas das saídas de dados e do comportamento da entrada de dados
-	\item View: apresenta as informações para o usuário. Os dados apresentados são obtidos do model. Podem haver diversas views para um model
-	\item Controller: cada view tem um controller associado à ela. Controllers recebem eventos de entrada, como click de mouse ou leitura de teclado. Tais eventos são então traduzidos em requisições para o model ou para a view. É pelo controller que o usuário interage com o sistema
-\end{itemize}
+\begin{center}
+	\includegraphics[scale=0.6]{MVCHandleEvent.png}
+\end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Padrões associados}
 \begin{itemize}
-	\item Observer: mantém as views e os controllers sincronidados com o model
-	\item Composite: permite a criação de views compostas, contendo outras views
-	\item Strategy: permite a utilização de diferentes controllers para uma mesma view
+	\item Observer: mantém as \textit{views} e os \textit{controllers} sincronizados com o \textit{model}
+	\item Composite: permite a criação de \textit{views} compostas, contendo outras \textit{views}
+	\item Strategy: permite a utilização de diferentes \textit{controllers} para uma mesma \textit{view}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Padrões associados - Observer}
-	O padrão \textit{Observer} é uma peça chave na implementação original do MVC. Ele é utilizado para que as views e os controllers mantenham-se sincronizados com os models, recebendo mensagens sobre alterações, sem que o model tenha conhecimento das views e dos controllers, mantendo o baixo acoplamento
+\begin{itemize}
+  \item {Peça-chave na implementação original do MVC}
+  \item {\textit{Views} e \textit{controllers} sincronizados com \textit{models}}
+  \item {O \textit{model} independe das \textit{views} e dos \textit{controllers}, reduzindo o acoplamento}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -116,7 +179,8 @@
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Padrões associados - Observer}
-	\begin{center}
+\begin{center}
+    \hspace{-1cm}
 		\includegraphics[scale=0.32]{ClassicMVC.png}
 	\end{center}
 \end{frame}
@@ -124,14 +188,33 @@
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Padrões associados - Composite}
-	O padrão \textit{Composite} permite a criação de CompositeViews, tendo várias views filhas responsáveis por cada elemento da interface de usuário. Uma tela pode ser implementada como uma CompositeView que possui uma view para um campo texto, outra para um botão, outra para uma caixa de seleção, etc
+  Permite a criação de \textit{CompositeViews}, tendo várias \textit{views} filhas responsáveis por cada elemento da interface de usuário.
+  
+  Exemplo: implementação de uma tela como uma \textit{CompositeView}, que possui uma \textit{view} para um campo texto, outra para um botão, outra para uma caixa de seleção, etc
 \end{frame}
 
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Padrões associados - Strategy}
-	O padrão \textit{Strategy} permite a utilização de diferentes modos de entrada e interação do usuário através da escolha de diferentes controllers para uma mesma view. É possível, por exemplo, ter um controller mais focado na interação utilizando o mouse e outro focado na utilização de atalhos do teclado, bastando inicializar um ou outro controler para comportamentos diferentes
+	Permite a utilização de diferentes modos de entrada e interação do usuário através da escolha de diferentes \textit{controllers} para uma mesma \textit{view}, bastando inicializar um ou outro \textit{controller} para comportamentos diferentes. 
+  
+  Exemplo: um controller mais focado na interação utilizando o \textit{mouse} e outro focado na utilização de atalhos do teclado
 \end{frame}
+
+\begin{frame}
+\frametitle{O padrão MVC}
+\framesubtitle{Por que usar?}
+\begin{itemize}
+	\item Redução do entrelaçamento da interface de usuário com o núcleo funcional aumenta a flexibilidade
+\begin{itemize}
+  \item diversas interfaces para o mesmo comportamento da aplicação
+  \item mudanças em uma interface não influenciam o comportamento da aplicação
+\end{itemize}
+	\item Diminue custos e propensão a erros na construção do sistema
+	\item A separação de responsabilidades facilita a utilização de testes automatizados
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Alguns frameworks que usam MVC ou derivados}
@@ -150,42 +233,46 @@
 
 \begin{frame}
 \frametitle{Alguns frameworks que usam MVC ou derivados}
-\framesubtitle{Rails não é MVC puro!}
-	Apesar do que se diz por aí, o famoso framework \textit{Rails}, para \textit{Ruby}, não é MVC, ou pelo menos, não o clássico,
-	mas sim um modelo derivado deste, chamado \textbf{Model 2}
+\framesubtitle{Rails}
+\begin{itemize}
+  \item {Rails não é MVC puro!}
+  \item {Segue um modelo derivado, o \textbf{Model 2}}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Alguns frameworks que usam MVC ou derivados}
-\framesubtitle{Rails não é MVC puro!}
-	No MVC clássico, um model pode notificar as views a respeito das mudanças que aconteceram (a partir do padrão \textit{Observer}). No Rails
-	nós não notificamos as views a partir do model, o controller simplesmente passa o dado do model para a view que se encarrega da geração do HTML que
-	é posteriormente enviado ao browser, como exibido no esquema abaixo:
+\framesubtitle{Rails}
+\begin{itemize}
+  \item {MVC clássico: um \textit{model} pode notificar as \textit{views} sobre mudanças que aconteceram (a partir do padrão \textit{Observer})}
+  \item {Estrutura no Rails: as \textit{views} não são notificadas pelo \textit{model}, mas recebem os dados do \textit{model} pelo \textit{controller}, como exibido no esquema abaixo:}
+\end{itemize}
 	\begin{center}
 		\includegraphics[scale=0.35]{RailsMVC.jpg}
 	\end{center}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[shrink=5]
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{O Model 2}
-	A seguir, um diagrama do \textit{Design Pattern} \textbf{Model 2}, usado no framework \textit{Rails}, mencionado no último slide
 	\begin{center}
-		\includegraphics[scale=0.2]{Model2.jpg}
+		\includegraphics[scale=0.35]{Model2.jpg}
 	\end{center}
-	As requisições do navegador do cliente são passadas para o controller. Na seqüência, o controller faz o que precisa para obter o conteúdo que deve ser exibido.
-	Em seguida, o conteúdo é colocado na requisição, freqüentemente como um JavaBean, e é decidido para qual view o conteúdo será repassado para então, finalmente, esta
-	view renderizá-lo
+  \begin{itemize}
+  \item {As requisições do navegador do cliente são passadas para o \textit{controller}}
+  \item {O \textit{controller} faz o que precisa para obter o conteúdo que deve ser exibido}
+  \item {O conteúdo é colocado na requisição, freqüentemente como um JavaBean, e é repassado para uma \textit{view}, que o renderiza}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{O Hierarchical Model–View–Controller (HMVC)}
-	O \textbf{HMVC} é uma variação do MVC, similar a um outro chamado \textit{Presentation–Abstraction–Control (PAC)}, que surgiu como uma tentativa de resposta aos problemas de escalabilidade.
+  Similar ao padrão \textit{Presentation–Abstraction–Control (PAC)}, que surgiu como uma tentativa de resposta aos problemas de escalabilidade.
 	\begin{center}
 		\includegraphics[scale=0.175]{HMVC.jpg}
 	\end{center}
-	Cada tríade funciona independentemente e uma tríade pode fazer requisição de acesso à outra a partir dos seus controllers.
+	Cada tríade funciona independentemente e uma tríade pode fazer requisição de acesso a outra a partir dos seus \textit{controllers}.
 \end{frame}
 
 \begin{frame}
@@ -200,42 +287,43 @@
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{O Movel-View-Adapter (MVA)}
-	Uma outra variação do MVC é o \textbf{Model-View-Adapter (MVA)}, mostrado a seguir:
 	\begin{center}
 		\includegraphics[scale=0.4]{MVA.jpg}
 	\end{center}
-	Na imagem, as linhas pontilhadas representam comunicação indireta, através do uso do padrão \textit{Observer}, já as demais linhas são relações diretas.
+	Na imagem, as linhas tracejadas representam comunicação indireta, através do uso do padrão \textit{Observer}, enquanto as linhas contínuas são relações diretas.
 \end{frame}
 
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{MVC versus MVA: algumas diferenças}
 \begin{itemize}
-	\item Desacoplamento total do model e da view no MVA.
-	\item Toda a dinâmica da aplicação é centralizada no adapter.
+	\item Desacoplamento total do \textit{model} e da \textit{view} no MVA
+	\item Toda a dinâmica da aplicação é centralizada no \textit{adapter}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{O Movel-View-Presenter (MVP)}
-	Nesta outra variação do MVC, nomeada \textbf{Model-View-Presenter (MVP)}, a View é a responsável por manipular os eventos da interface de usuário, função do controller no MVC tradicional
 	\begin{center}
 		\includegraphics[scale=0.3]{MVP.jpg}
 	\end{center}
-	O MVP surgiu, dentre outros motivos, com o objetivo de tentar facilitar a realização de testes de unidade automatizados (diferente do MVC tradicional, o presenter
-	só interage com a view por meio de uma interface). Aqui, o presenter age sobre o model e a view, atualizando e recuperando dados do model e passando-os já preparados para a view, que apenas deverá exibi-los da maneira esperada.
+	\begin{itemize}
+    \item A \textit{view} é a responsável por manipular os eventos da interface de usuário, função do \textit{controller} no MVC tradicional
+    \item O \textit{presenter} só interage com a \textit{view} por meio de uma interface, facilitando a realização de testes de unidade automatizados
+    \item O \textit{presenter} age sobre o \textit{model} e a \textit{view}, atualizando e recuperando dados do \textit{model} e passando-os já preparados para a \textit{view}, que apenas deverá exibi-los da maneira esperada
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Alguns padrões similares ao MVC}
 \framesubtitle{MVC versus MVP: algumas diferenças}
 \begin{itemize}
-	\item View está menos amarrada ao model no MVP. Amarrá-los é tarefa do presenter.\\
+	\item A \textit{view} está menos amarrada ao \textit{model} no MVP. Amarrá-los é tarefa do \textit{presenter}.\\
 	\item Mais facilidade para realizar testes de unidade no MVP.\\
-	\item Views complexas podem ter múltiplos presenters.
-	\item No MVC, a parte lógica deve sempre ficar completamente isolada da view.
-	\item Controller é baseado em comportamentos e pode ser compartilhado através das views.
+	\item \textit{Views} complexas podem ter múltiplos \textit{presenters}.
+	\item No MVC, a parte lógica deve sempre ficar completamente isolada da \textit{view}.
+	\item No MVP, o \textit{controller} é baseado em comportamentos e pode ser compartilhado através das \textit{views}.
 \end{itemize}
 \end{frame}
 
