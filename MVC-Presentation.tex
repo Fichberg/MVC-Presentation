@@ -87,7 +87,7 @@
 	\item \textit{View}: apresenta as informações para o usuário
   \item \textit{Controller}: trata a interação do usuário com o sistema
 \end{itemize}
- 
+
   As \textit{views} e os \emph{controllers} compreendem a interface de usuário.
 \end{frame}
 
@@ -126,7 +126,7 @@ A \textit{View}:
 \begin{center}
 	\includegraphics[scale=0.4]{MVC.jpg}
 \end{center}
-O \textit{Controller}: 
+O \textit{Controller}:
 \begin{itemize}
   \item {É responsável por qualquer entrada de dados na aplicação, como um \textit{click} do \textit{mouse} ou uso de teclas do teclado}
   \item {Trata as entradas de dados como eventos e os transforma em serviços}
@@ -189,15 +189,15 @@ O \textit{Controller}:
 \frametitle{O padrão MVC}
 \framesubtitle{Padrões associados - Composite}
   Permite a criação de \textit{CompositeViews}, tendo várias \textit{views} filhas responsáveis por cada elemento da interface de usuário.
-  
+
   Exemplo: implementação de uma tela como uma \textit{CompositeView}, que possui uma \textit{view} para um campo texto, outra para um botão, outra para uma caixa de seleção, etc
 \end{frame}
 
 \begin{frame}
 \frametitle{O padrão MVC}
 \framesubtitle{Padrões associados - Strategy}
-	Permite a utilização de diferentes modos de entrada e interação do usuário através da escolha de diferentes \textit{controllers} para uma mesma \textit{view}, bastando inicializar um ou outro \textit{controller} para comportamentos diferentes. 
-  
+	Permite a utilização de diferentes modos de entrada e interação do usuário através da escolha de diferentes \textit{controllers} para uma mesma \textit{view}, bastando inicializar um ou outro \textit{controller} para comportamentos diferentes.
+
   Exemplo: um controller mais focado na interação utilizando o \textit{mouse} e outro focado na utilização de atalhos do teclado
 \end{frame}
 
@@ -323,7 +323,7 @@ O \textit{Controller}:
 	\item Mais facilidade para realizar testes de unidade no MVP.\\
 	\item \textit{Views} complexas podem ter múltiplos \textit{presenters}.
 	\item No MVC, a parte lógica deve sempre ficar completamente isolada da \textit{view}.
-	\item No MVP, o \textit{controller} é baseado em comportamentos e pode ser compartilhado através das \textit{views}.
+	\item No MVC, o \textit{controller} é baseado em comportamentos e pode ser compartilhado através das \textit{views}.
 \end{itemize}
 \end{frame}
 
